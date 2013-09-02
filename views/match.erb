@@ -1,0 +1,38 @@
+<% 
+	@players = Player.uniq.pluck('name') 
+	@scores = [0,1,2,3,4,5,6,7,8,9,10]
+%>
+<h1>KickerControl</h1>
+<form method="post" action="/result">
+	<select name="post[team1backend]">
+		<% @players.each do |player| %>
+			<option value=<%= player %>><%= player %></option>
+		<% end %>
+	</select>
+	<select name="post[team1frontend]">
+		<% @players.each do |player| %>
+			<option value=<%= player %>><%= player %></option>
+		<% end %>
+	</select><br>
+	<select name="post[team2backend]">
+		<% @players.each do |player| %>
+			<option value=<%= player %>><%= player %></option>
+		<% end %>
+	</select>
+	<select name="post[team2frontend]">
+		<% @players.each do |player| %>
+			<option value=<%= player %>><%= player %></option>
+		<% end %>
+	</select><br>
+	<select name="post[team1score]">
+		<% @scores.each do |score| %>
+			<option value=<%= score %>><%= score %></option>
+		<% end %>
+	</select>
+	<select name="post[team2score]">
+		<% @scores.each do |score| %>
+			<option value=<%= score %>><%= score %></option>
+		<% end %>
+	</select><br>
+	<input type="submit" value="Submit">
+</form>
